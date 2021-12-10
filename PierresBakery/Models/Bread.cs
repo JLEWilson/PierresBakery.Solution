@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Bakery.Models
@@ -5,16 +6,28 @@ namespace Bakery.Models
   public class Bread : FoodItem
   {
     private static List<Bread> _breadOrder = new List<Bread> {};
-    private int _breadOrderTotalPrice;
     public Bread(int price) : base(price)
     {
       _breadOrder.Add(this);
-      _breadOrderTotalPrice += this.GetPrice();
     }
 
-    public static int ApplyDiscount(int itemsNeededForSale, int priceReduction) //This is separate from FoodItem.ApplyDiscount because bread objects don't inherit the static fields or methods
+    new public static int ApplyDiscount(int itemsNeededForSale, int priceReduction) //While we can't override static methods, we can hide them. The new keyword here will hide the parent objects ApplyDiscount method and use this one instead.
     {
-      return 0;
+      int total = 0;
+      foreach(Bread item in _breadOrder)
+      {
+        total += item.GetPrice();
+      }
+      for(int i = itemsNeededForSale; i <= _breadOrder.Count; i += itemsNeededForSale)
+      {
+        total -= priceReduction;
+      }
+      return total;
+    }
+    
+    public static void ClearBreadFromOrder()
+    {
+      _breadOrder.Clear();
     }
   }
 }
