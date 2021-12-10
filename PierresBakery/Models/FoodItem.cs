@@ -17,7 +17,16 @@ namespace Bakery.Models
     }
     public static int ApplyDiscount(int itemsNeededForSale, int priceReduction)
     {
-      return 0;
+      int total = 0;
+      foreach(FoodItem item in _order)
+      {
+        total += item._price;
+      }
+      for(int i=0; i<_order.Count; i+= itemsNeededForSale)
+      {
+        total -= priceReduction;
+      }
+      return total;
     }
     public static void ClearAll()
     {
