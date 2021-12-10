@@ -15,6 +15,10 @@ namespace Bakery.Models
     {
       return _price;
     }
+    public static int ApplyDiscount(int itemsNeededForSale, int priceReduction)
+    {
+      return 0;
+    }
     public static void ClearAll()
     {
       _order.Clear();
