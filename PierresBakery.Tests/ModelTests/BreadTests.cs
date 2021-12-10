@@ -9,6 +9,7 @@ namespace Bakery.Tests
   {
     public void Dispose()
     {
+      Bread.ClearBreadFromOrder();
       Bread.ClearAll();
     }
 
