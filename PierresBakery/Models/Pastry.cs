@@ -19,6 +19,11 @@ namespace Bakery.Models
       }
       return total;
     }
+    new public static int ApplyDiscount(int itemsNeededForSale, int priceReduction)
+    {
+      int total = Pastry.CalculateTotal();
+      return total;
+    }
     public static void ClearPastryFromOrder()
     {
       _pastryOrder.Clear();

@@ -42,5 +42,16 @@ namespace Bakery.Tests
       int total = Pastry.CalculateTotal();
       Assert.AreEqual(15, total);
     }
+    [TestMethod]
+    public void ApplyDiscount_ReturnPriceOfAllItemsWithDiscount_9()    
+    {
+      Pastry newPastry1 = new Pastry(2);
+      Pastry newPastry2 = new Pastry(2);
+      Pastry newPastry3 = new Pastry(2);
+      Pastry newPastry4 = new Pastry(2);
+      Pastry newPastry5 = new Pastry(2);
+      int total = Bread.ApplyDiscount(3, 1); // Should reduce total by 5 for every 3 items ordered
+      Assert.AreEqual(9, total);
+    }
   }
 }
