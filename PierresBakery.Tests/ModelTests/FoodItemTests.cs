@@ -1,9 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bakery.Models;
+using System;
 
 namespace Bakery.Tests
 {
-  [Testclass]
+  [TestClass]
   public class FoodItemTests : IDisposable
   {
     public void Dispose()
@@ -11,5 +12,11 @@ namespace Bakery.Tests
       FoodItem.ClearAll();
     }
 
+    [TestMethod]
+    public void FoodItemConstructor_CreateInstanceOfFoodItem_FoodItem()
+    {
+      FoodItem newFoodItem = new FoodItem(3);
+      Assert.AreEqual(typeof(FoodItem), newFoodItem.GetType());
+    }
   }
 }
