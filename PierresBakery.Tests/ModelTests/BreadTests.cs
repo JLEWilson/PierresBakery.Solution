@@ -34,7 +34,6 @@ namespace Bakery.Tests
       Bread newBread = new Bread(3);
       Assert.AreEqual(typeof(Bread), newBread.GetType());
     }
-
     [TestMethod]
     public void BreadConstructor_InheritPricePropertyAndGetMethodFromBread_3()
     {
@@ -42,7 +41,15 @@ namespace Bakery.Tests
       int price = newBread.GetPrice();
       Assert.AreEqual(3, price);
     }
-
+    [TestMethod]
+    public void CalculateTotal_ReturnPriceOfAllBreadItems_15()
+    {
+      Bread newBread1 = new Bread(5);
+      Bread newBread2 = new Bread(5);
+      Bread newBread3 = new Bread(5);
+      int total = Bread.CalculateTotal();
+      Assert.AreEqual(15, total);
+    }
     [TestMethod]
     public void ApplyDiscount_ReturnPriceOfAllItemsWithDiscount_20()    
     {
