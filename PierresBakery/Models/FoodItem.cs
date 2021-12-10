@@ -3,7 +3,7 @@ namespace Bakery.Models
 {
   public class FoodItem
   {
-    private int _price {get; set;}
+    private int _price;
     private static List<FoodItem> _order = new List<FoodItem> {}; 
     public FoodItem(int price)
     {
@@ -11,9 +11,14 @@ namespace Bakery.Models
       _order.Add(this);
     }
 
+    public int GetPrice()
+    {
+      return _price;
+    }
     public static void ClearAll()
     {
       _order.Clear();
     }
+
   }
 }
