@@ -6,7 +6,7 @@ namespace Bakery.Models
   public class Bread : FoodItem
   {
     private static List<Bread> _breadOrder = new List<Bread> {};
-    public Bread(int price) : base(price)
+    public Bread(int price) : base(price, "Bread")
     {
       _breadOrder.Add(this);
     }
@@ -28,6 +28,9 @@ namespace Bakery.Models
     public static void ClearBreadFromOrder()
     {
       _breadOrder.Clear();
+      List <FoodItem> orderList = Bread.GetOrder();
+      orderList.RemoveAll(item => item.GetFoodType() == "Bread");
+      Bread.SetOrder(orderList);
     }
   }
 }
