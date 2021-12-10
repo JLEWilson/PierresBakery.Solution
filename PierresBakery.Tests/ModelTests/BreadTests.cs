@@ -23,8 +23,8 @@ namespace Bakery.Tests
       //remove bread from both the FoodItem order and bread order
       Bread.ClearBreadFromOrder();
       //get remaining count of foodItem _order
-      List<FoodItem> orderList = FoodItem.GetOrder();
-      int itemCount = orderList.Count;
+  FoodItem.GetOrder();
+      int itemCount = FoodItem.GetOrder().Count;
       Assert.AreEqual(2, itemCount);
 
     }
