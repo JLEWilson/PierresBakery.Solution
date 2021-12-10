@@ -4,7 +4,7 @@ namespace Bakery.Models
   public class FoodItem
   {
     private int _price {get; set;}
-    private List<FoodItem> _order = new List<FoodItem> {}; 
+    private static List<FoodItem> _order = new List<FoodItem> {}; 
     public FoodItem(int price)
     {
       _price = price;
