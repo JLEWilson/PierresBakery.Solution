@@ -10,7 +10,7 @@ namespace Bakery.Tests
   {
     public void Dispose()
     {
-
+      Pastry.ClearPastryFromOrder();
     }
     [TestMethod]
     public void PastryConstructor_CreateInstanceOfPastry_Pastry()

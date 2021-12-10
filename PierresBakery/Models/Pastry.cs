@@ -13,8 +13,18 @@ namespace Bakery.Models
     new public static int CalculateTotal()  //While we can't override static methods, we can hide them. The new keyword here will hide the parent objects CalculateTotal method and use this one instead.
     {
       int total = 0;
-      
+      foreach(Pastry item in _pastryOrder)
+      {
+        total += item.GetPrice();
+      }
       return total;
+    }
+    public static void ClearPastryFromOrder()
+    {
+      _pastryOrder.Clear();
+      List <FoodItem> orderList = Pastry.GetOrder();
+      orderList.RemoveAll(item => item.GetFoodType() == _type);
+      Pastry.SetOrder(orderList);
     }
   }
 }
