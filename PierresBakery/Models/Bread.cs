@@ -5,19 +5,19 @@ namespace Bakery.Models
 {
   public class Bread : FoodItem
   {
-    private static string _type = "Bread";
-    private static List<Bread> _breadOrder = new List<Bread> {};
-    public Bread(int price) : base(price, _type)
+    public static string Type {get; set;} = "Bread";
+    public static List<Bread> BreadOrder {get; set;} = new List<Bread> {};
+    public Bread(int price) : base(price, Type)
     {
-      _breadOrder.Add(this);
+      BreadOrder.Add(this);
     }
 
     new public static int CalculateTotal()  //While we can't override static methods, we can hide them. The new keyword here will hide the parent objects CalculateTotal method and use this one instead.
     {
       int total = 0;
-      foreach(Bread item in _breadOrder)
+      foreach(Bread item in BreadOrder)
       {
-        total += item.GetPrice();
+        total += item.Price;
       }
       return total;
     }
@@ -25,7 +25,7 @@ namespace Bakery.Models
     {
       int total = Bread.CalculateTotal();
       
-      for(int i = itemsNeededForSale; i <= _breadOrder.Count; i += itemsNeededForSale)
+      for(int i = itemsNeededForSale; i <= BreadOrder.Count; i += itemsNeededForSale)
       {
         total -= priceReduction;
       }
@@ -34,10 +34,10 @@ namespace Bakery.Models
     
     public static void ClearBreadFromOrder()
     {
-      _breadOrder.Clear();
-      List <FoodItem> orderList = Bread.GetOrder();
-      orderList.RemoveAll(item => item.GetFoodType() == _type);
-      Bread.SetOrder(orderList);
+      BreadOrder.Clear();
+      List <FoodItem> orderList = Bread.Order;
+      orderList.RemoveAll(item => item.FoodType == Type);
+      Bread.Order = orderList;
     }
   }
 }
