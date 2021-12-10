@@ -22,7 +22,7 @@ namespace Bakery.Models
       {
         total += item._price;
       }
-      for(int i=0; i<_order.Count; i+= itemsNeededForSale)
+      for(int i = itemsNeededForSale ; i<=_order.Count; i+= itemsNeededForSale)
       {
         total -= priceReduction;
       }
