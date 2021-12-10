@@ -27,6 +27,15 @@ namespace Bakery.Tests
       Assert.AreEqual(5, price);
     }
     [TestMethod]
+    public void CalculateTotal_ReturnPriceOfAllFoodItems_15()
+    {
+      FoodItem newFoodItem = new FoodItem(5, "Generic");
+      FoodItem newFoodItem1 = new FoodItem(5, "Generic");
+      FoodItem newFoodItem2 = new FoodItem(5, "Generic");
+      int total = FoodItem.CalculateTotal();
+      Assert.AreEqual(15, total);
+    }
+    [TestMethod]
     public void ApplyDiscount_ReturnPriceOfAllItemsWithDiscount_20()
     {
       FoodItem newFoodItem1 = new FoodItem(5, "Generic");
@@ -34,7 +43,7 @@ namespace Bakery.Tests
       FoodItem newFoodItem3 = new FoodItem(5, "Generic");
       FoodItem newFoodItem4 = new FoodItem(5, "Generic");
       FoodItem newFoodItem5 = new FoodItem(5, "Generic");
-      int total = FoodItem.ApplyDiscount(5, 5); // Should reduce total by 5 for every 5 items ordered
+      int total = FoodItem.ApplyDiscount(FoodItem.CalculateTotal(), 5, 5); // Should reduce total by 5 for every 5 items ordered
       Assert.AreEqual(20, total);
     }
   }
