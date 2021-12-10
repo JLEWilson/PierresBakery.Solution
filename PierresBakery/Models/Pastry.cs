@@ -15,7 +15,7 @@ namespace Bakery.Models
       int total = 0;
       foreach(Pastry item in _pastryOrder)
       {
-        total += item.GetPrice();
+        total += item.Price;
       }
       return total;
     }
@@ -31,9 +31,9 @@ namespace Bakery.Models
     public static void ClearPastryFromOrder()
     {
       _pastryOrder.Clear();
-      List <FoodItem> orderList = Pastry.GetOrder();
-      orderList.RemoveAll(item => item.GetFoodType() == _type);
-      Pastry.SetOrder(orderList);
+      List <FoodItem> orderList = Pastry.Order;
+      orderList.RemoveAll(item => item.FoodType == _type);
+      Pastry.Order = orderList;
     }
   }
 }

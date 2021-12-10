@@ -3,45 +3,29 @@ namespace Bakery.Models
 {
   public class FoodItem
   {
-    private int _price;
-    private string _foodType;
-    private static List<FoodItem> _order = new List<FoodItem> {}; 
+    public int Price {get; set;}
+    public string FoodType {get; set;}
+    public static List<FoodItem> Order {get; set;} = new List<FoodItem> {}; 
     public FoodItem(int price, string foodType)
     {
-      _price = price;
-      _foodType = foodType;
-      _order.Add(this);
+      Price = price;
+      FoodType = foodType;
+      Order.Add(this);
     }
 
-    public int GetPrice()
-    {
-      return _price;
-    }
-    public string GetFoodType()
-    {
-      return _foodType;
-    }
-    public static List<FoodItem> GetOrder()
-    {
-      return _order;
-    }
-    public static void SetOrder(List<FoodItem> adjustedOrder)
-    {
-      _order = adjustedOrder;
-    }
     public static int CalculateTotal()
     {
       int total = 0;
-      foreach(FoodItem item in _order)
+      foreach(FoodItem item in Order)
       {
-        total += item._price;
+        total += item.Price;
       }
       return total;
     }
     public static int ApplyDiscount(int itemsNeededForSale, int priceReduction)
     {
       int total = FoodItem.CalculateTotal();
-      for(int i = itemsNeededForSale ; i<=_order.Count; i+= itemsNeededForSale)
+      for(int i = itemsNeededForSale ; i<=Order.Count; i+= itemsNeededForSale)
       {
         total -= priceReduction;
       }
@@ -50,7 +34,7 @@ namespace Bakery.Models
     
     public static void ClearAll()
     {
-      _order.Clear();
+      Order.Clear();
     }
 
   }
