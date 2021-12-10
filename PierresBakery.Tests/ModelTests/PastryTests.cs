@@ -50,7 +50,7 @@ namespace Bakery.Tests
       Pastry newPastry3 = new Pastry(2);
       Pastry newPastry4 = new Pastry(2);
       Pastry newPastry5 = new Pastry(2);
-      int total = Bread.ApplyDiscount(3, 1); // Should reduce total by 5 for every 3 items ordered
+      int total = Pastry.ApplyDiscount(3, 1); // Should reduce total by 5 for every 3 items ordered
       Assert.AreEqual(9, total);
     }
   }
