@@ -13,7 +13,7 @@ namespace Bakery.Tests
       Bread.ClearBreadFromOrder();
     }
     [TestMethod]
-    public void ClearAllBreadItems_ClearBreadItemsAndRemoveThemFromFoodItemOrder_2()
+    public void ClearBreadFromOrder_ClearBreadItemsAndRemoveThemFromFoodItemOrder_2()
     {
       //add 4 items to FoodItem order
       FoodItem newFoodItem1 = new FoodItem(5, "Generic");
