@@ -38,8 +38,9 @@ namespace Bakery.Models
       }
       return total;
     }
-    public static int ApplyDiscount(int total, int itemsNeededForSale, int priceReduction)
+    public static int ApplyDiscount(int itemsNeededForSale, int priceReduction)
     {
+      int total = FoodItem.CalculateTotal();
       for(int i = itemsNeededForSale ; i<=_order.Count; i+= itemsNeededForSale)
       {
         total -= priceReduction;
