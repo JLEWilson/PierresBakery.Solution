@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bakery.Models;
 using System;
+using System.Collections.Generic;
 
 namespace Bakery.Tests
 {
@@ -10,9 +11,23 @@ namespace Bakery.Tests
     public void Dispose()
     {
       Bread.ClearBreadFromOrder();
-      Bread.ClearAll();
     }
+    [TestMethod]
+    public void ClearAllBreadItems_ClearBreadItemsAndRemoveThemFromFoodItemOrder_2()
+    {
+      //add 4 items to FoodItem order
+      FoodItem newFoodItem1 = new FoodItem(5, "Generic");
+      FoodItem newFoodItem2 = new FoodItem(5, "Generic");
+      Bread newBread1 = new Bread(5);
+      Bread newBread2 = new Bread(5);
+      //remove bread from both the FoodItem order and bread order
+      Bread.ClearBreadFromOrder();
+      //get remaining count of foodItem _order
+      List<FoodItem> orderList = FoodItem.GetOrder();
+      int itemCount = orderList.Count;
+      Assert.AreEqual(2, itemCount);
 
+    }
     [TestMethod]
     public void BreadConstructor_CreateInstanceOfBread_Bread()
     {
@@ -40,4 +55,5 @@ namespace Bakery.Tests
       Assert.AreEqual(20, total);
     }
   }
+  
 }
