@@ -18,5 +18,13 @@ namespace Bakery.Tests
       FoodItem newFoodItem = new FoodItem(3);
       Assert.AreEqual(typeof(FoodItem), newFoodItem.GetType());
     }
+
+    [TestMethod]
+    public void GetPrice_ReturnPriceOfFoodItem_5()
+    {
+      FoodItem newFoodItem = new FoodItem(5);
+      int price = newFoodItem.GetPrice();
+      Assert.AreEqual(5, price);
+    }
   }
 }
