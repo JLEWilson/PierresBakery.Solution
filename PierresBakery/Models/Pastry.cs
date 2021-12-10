@@ -22,6 +22,10 @@ namespace Bakery.Models
     new public static int ApplyDiscount(int itemsNeededForSale, int priceReduction)
     {
       int total = Pastry.CalculateTotal();
+      for(int i = itemsNeededForSale; i <= _pastryOrder.Count; i += itemsNeededForSale)
+      {
+        total -= priceReduction;
+      }
       return total;
     }
     public static void ClearPastryFromOrder()
