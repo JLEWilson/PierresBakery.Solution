@@ -6,6 +6,7 @@ namespace Bakery.Models
   public class Bread : FoodItem
   {
     public static string Type {get; set;} = "Bread";
+    public string BreadType {get; set;}
     public static List<Bread> BreadOrder {get; set;} = new List<Bread> {};
     public Bread(int price) : base(price, Type)
     {
