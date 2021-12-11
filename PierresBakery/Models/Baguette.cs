@@ -8,7 +8,7 @@ namespace Bakery.Models
 
     public Baguette() : base(Cost)
     {
-      
+      this.BreadType = "Baguette";
     }
   }
 }
