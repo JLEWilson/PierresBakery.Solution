@@ -23,8 +23,7 @@ namespace Bakery.Tests
       //remove Pastry from both the FoodItem order and Pastry order
       Pastry.ClearPastryFromOrder();
       //get remaining count of foodItem _order
-      FoodItem.GetOrder();
-      int itemCount = FoodItem.GetOrder().Count;
+      int itemCount = FoodItem.Order.Count;
       Assert.AreEqual(2, itemCount);
     }
     [TestMethod]
@@ -34,7 +33,7 @@ namespace Bakery.Tests
       Assert.AreEqual(typeof(Pastry), newPastry.GetType());
     }
     [TestMethod]
-    public void CalculateTotal_ReturnPriceOfAllPastrys_15()
+    public void CalculateTotal_ReturnPriceOfAllPastries_15()
     {
       Pastry newPastry = new Pastry(5);
       Pastry newPastry1 = new Pastry(5);
