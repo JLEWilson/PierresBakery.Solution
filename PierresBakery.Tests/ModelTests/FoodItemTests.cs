@@ -23,7 +23,7 @@ namespace Bakery.Tests
     public void GetPrice_ReturnPriceOfFoodItem_5()
     {
       FoodItem newFoodItem = new FoodItem(5, "Generic");
-      int price = newFoodItem.GetPrice();
+      int price = newFoodItem.Price;
       Assert.AreEqual(5, price);
     }
     [TestMethod]

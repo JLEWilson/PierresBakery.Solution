@@ -23,8 +23,7 @@ namespace Bakery.Tests
       //remove bread from both the FoodItem order and bread order
       Bread.ClearBreadFromOrder();
       //get remaining count of foodItem _order
-      FoodItem.GetOrder();
-      int itemCount = FoodItem.GetOrder().Count;
+      int itemCount = FoodItem.Order.Count;
       Assert.AreEqual(2, itemCount);
     }
     [TestMethod]
@@ -37,7 +36,7 @@ namespace Bakery.Tests
     public void BreadConstructor_InheritPricePropertyAndGetMethodFromBread_3()
     {
       Bread newBread = new Bread(3);
-      int price = newBread.GetPrice();
+      int price = newBread.Price;
       Assert.AreEqual(3, price);
     }
     [TestMethod]
