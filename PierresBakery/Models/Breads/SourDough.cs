@@ -2,12 +2,12 @@ using System;
 
 namespace Bakery.Models
 {
-  public class SourDough : Bread
+  public class Sourdough : Bread
   {
     public static int Cost {get;set;} = 8;
-    public static string Name {get;set;} = "SourDough";
+    public static string Name {get;set;} = "Sourdough";
 
-    public SourDough() : base(Cost, Name)
+    public Sourdough() : base(Cost, Name)
     {
     }
   }
