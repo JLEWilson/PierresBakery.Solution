@@ -45,7 +45,10 @@ namespace Bakery.Models
       }
       return total;
     }
-    
+    public static void ApplyDiscountSpecific(int itemNumberForPriceChange, int newPrice, string itemName)
+    {
+      
+    }
     public static void ClearAll()
     {
       Order.Clear();
