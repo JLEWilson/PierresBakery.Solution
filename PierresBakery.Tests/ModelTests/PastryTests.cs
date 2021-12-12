@@ -32,35 +32,5 @@ namespace Bakery.Tests
       Pastry newPastry = new Pastry(3, "Macaron");
       Assert.AreEqual(typeof(Pastry), newPastry.GetType());
     }
-    [TestMethod]
-    public void CalculateTotal_ReturnPriceOfAllPastries_15()
-    {
-      Pastry newPastry = new Pastry(5, "Brioche");
-      Pastry newPastry1 = new Pastry(5, "Brioche");
-      Pastry newPastry2 = new Pastry(5, "Brioche");
-      int total = Pastry.CalculateTotal();
-      Assert.AreEqual(15, total);
-    }
-    [TestMethod]
-    public void ApplyDiscount_ReturnPriceOfAllItemsWithDiscount_9()    
-    {
-      Pastry newPastry1 = new Pastry(2, "Brioche");
-      Pastry newPastry2 = new Pastry(2, "Brioche");
-      Pastry newPastry3 = new Pastry(2, "Brioche");
-      Pastry newPastry4 = new Pastry(2, "Brioche");
-      Pastry newPastry5 = new Pastry(2, "Brioche");
-      int total = Pastry.ApplyDiscount(3, 1); // Should reduce total by 5 for every 3 items ordered
-      Assert.AreEqual(9, total);
-    }
-    [TestMethod]
-    public void RemovePastryOfTypeFromOrder_RemovePastryBasedOnType_False()
-    {
-      Croissant pastry1 = new Croissant();
-      Macaron pastry2 = new Macaron();
-      Danish pastry3 = new Danish();
-      Pastry.RemovePastryOfTypeFromOrder(pastry1.PastryType);
-      bool doesContain = Bread.Order.Contains(pastry1);
-      Assert.AreEqual(false, doesContain);
-    }
   }
 }

@@ -39,35 +39,5 @@ namespace Bakery.Tests
       int price = newBread.Price;
       Assert.AreEqual(3, price);
     }
-    [TestMethod]
-    public void CalculateTotal_ReturnPriceOfAllBreadItems_15()
-    {
-      Bread newBread1 = new Bread(5, "Brioche");
-      Bread newBread2 = new Bread(5, "Brioche");
-      Bread newBread3 = new Bread(5, "Brioche");
-      int total = Bread.CalculateTotal();
-      Assert.AreEqual(15, total);
-    }
-    [TestMethod]
-    public void ApplyDiscount_ReturnPriceOfAllItemsWithDiscount_20()    
-    {
-      Bread newBread1 = new Bread(5, "Brioche");
-      Bread newBread2 = new Bread(5, "Brioche");
-      Bread newBread3 = new Bread(5, "Brioche");
-      Bread newBread4 = new Bread(5, "Brioche");
-      Bread newBread5 = new Bread(5, "Brioche");
-      int total = Bread.ApplyDiscount(3, 5); // Should reduce total by 5 for every 3 items ordered
-      Assert.AreEqual(20, total);
-    }
-    [TestMethod]
-    public void RemoveBreadOfTypeFromOrder_RemoveBreadBasedOnType_False()
-    {
-      Brioche bread1 = new Brioche();
-      Sourdough bread2 = new Sourdough();
-      Baguette bread3 = new Baguette();
-      Bread.RemoveBreadOfTypeFromOrder(bread1.BreadType);
-      bool doesContain = Bread.Order.Contains(bread1);
-      Assert.AreEqual(false, doesContain);
-    }
   }
 }
