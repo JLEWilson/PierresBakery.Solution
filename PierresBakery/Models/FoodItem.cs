@@ -30,6 +30,10 @@ namespace Bakery.Models
       currentId ++;
       return currentId;
     }
+    public static void RemoveItemFromOrder(int id)
+    {
+      
+    }
     public static int ApplyDiscount(int itemsNeededForSale, int priceReduction)
     {
       int total = FoodItem.CalculateTotal();
