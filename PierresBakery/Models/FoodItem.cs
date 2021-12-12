@@ -32,7 +32,7 @@ namespace Bakery.Models
     }
     public static void RemoveItemFromOrder(int id)
     {
-      
+      Order.RemoveAll(item => item.Id == id);
     }
     public static int ApplyDiscount(int itemsNeededForSale, int priceReduction)
     {
