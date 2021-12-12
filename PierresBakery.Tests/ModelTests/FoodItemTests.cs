@@ -10,6 +10,7 @@ namespace Bakery.Tests
     public void Dispose()
     {
       FoodItem.ClearAll();
+      FoodItem.ResetId();
     }
 
     [TestMethod]
@@ -53,9 +54,9 @@ namespace Bakery.Tests
       FoodItem newFoodItem1 = new FoodItem(5, "Generic");
       FoodItem newFoodItem2 = new FoodItem(5, "Generic");
       FoodItem newFoodItem3 = new FoodItem(5, "Generic");
-      Assert.AreEqual(0, newFoodItem1.Id);
       Assert.AreEqual(1, newFoodItem1.Id);
-      Assert.AreEqual(2, newFoodItem1.Id);
+      Assert.AreEqual(2, newFoodItem2.Id);
+      Assert.AreEqual(3, newFoodItem3.Id);
     }
   }
 }
