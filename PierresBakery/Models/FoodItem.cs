@@ -6,7 +6,7 @@ namespace Bakery.Models
     public int Price {get; set;}
     public string FoodType {get; set;}
     public static int currentId {get; set;} = 0;
-    public int Id;
+    public int Id {get; set;}
     public static List<FoodItem> Order {get; set;} = new List<FoodItem> {}; 
     public FoodItem(int price, string foodType)
     {
@@ -27,7 +27,8 @@ namespace Bakery.Models
     }
     private int AssignId()
     {
-      return 0;
+      currentId ++;
+      return currentId;
     }
     public static int ApplyDiscount(int itemsNeededForSale, int priceReduction)
     {
@@ -43,6 +44,9 @@ namespace Bakery.Models
     {
       Order.Clear();
     }
-
+    public static void ResetId()
+    {
+      currentId = 0;
+    }
   }
 }
