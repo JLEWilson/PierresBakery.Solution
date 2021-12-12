@@ -46,5 +46,16 @@ namespace Bakery.Tests
       int total = FoodItem.ApplyDiscount(5, 5); // Should reduce total by 5 for every 5 items ordered
       Assert.AreEqual(20, total);
     }
+    [TestMethod]
+    public void AssignId_ReturnUniqueIdForEachFoodItem_Int()
+    {
+      //method is private, runs in the constructor
+      FoodItem newFoodItem1 = new FoodItem(5, "Generic");
+      FoodItem newFoodItem2 = new FoodItem(5, "Generic");
+      FoodItem newFoodItem3 = new FoodItem(5, "Generic");
+      Assert.AreEqual(0, newFoodItem1.Id);
+      Assert.AreEqual(1, newFoodItem1.Id);
+      Assert.AreEqual(2, newFoodItem1.Id);
+    }
   }
 }
