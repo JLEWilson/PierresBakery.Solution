@@ -5,11 +5,14 @@ namespace Bakery.Models
   {
     public int Price {get; set;}
     public string FoodType {get; set;}
+    public static int currentId {get; set;} = 0;
+    public int Id;
     public static List<FoodItem> Order {get; set;} = new List<FoodItem> {}; 
     public FoodItem(int price, string foodType)
     {
       Price = price;
       FoodType = foodType;
+      Id = AssignId();
       Order.Add(this);
     }
 
@@ -21,6 +24,10 @@ namespace Bakery.Models
         total += item.Price;
       }
       return total;
+    }
+    private int AssignId()
+    {
+      return 0;
     }
     public static int ApplyDiscount(int itemsNeededForSale, int priceReduction)
     {
