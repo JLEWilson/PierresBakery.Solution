@@ -7,10 +7,10 @@ namespace Bakery.Tests
   public class SourdoughTests
   {
     [TestMethod]
-    public void SourDoughConstructor_CreateInstanceOfSourDough_Sourdough()
+    public void SourdoughConstructor_CreateInstanceOfSourdough_Sourdough()
     {
-      SourDough sourdough = new SourDough();
-      Assert.AreEqual(typeof(SourDough), sourdough.GetType());
+      Sourdough sourdough = new Sourdough();
+      Assert.AreEqual(typeof(Sourdough), sourdough.GetType());
     }
   }
 }
