@@ -32,7 +32,6 @@ namespace Bakery.Models
       }
       return total;
     }
-    
     public static void ClearBreadFromOrder()
     {
       Bread.Order.RemoveAll(item => item.FoodType == Type);
