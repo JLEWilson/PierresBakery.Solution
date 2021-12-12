@@ -36,7 +36,7 @@ namespace Bakery.Models
     }
     public static void RemovePastryOfTypeFromOrder(string pastryType)
     {
-
+      Pastry.Order.RemoveAll(item => item.ItemName == pastryType);
     }
   }
 }
