@@ -52,5 +52,15 @@ namespace Bakery.Tests
       int total = Pastry.ApplyDiscount(3, 1); // Should reduce total by 5 for every 3 items ordered
       Assert.AreEqual(9, total);
     }
+    [TestMethod]
+    public void RemovePastryOfTypeFromOrder_RemovePastryBasedOnType_False()
+    {
+      Croissant pastry1 = new Croissant();
+      Macaron pastry2 = new Macaron();
+      Danish pastry3 = new Danish();
+      Pastry.RemovePastryOfTypeFromOrder(pastry1.PastryType);
+      bool doesContain = Bread.Order.Contains(pastry1);
+      Assert.AreEqual(false, doesContain);
+    }
   }
 }

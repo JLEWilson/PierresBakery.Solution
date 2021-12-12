@@ -32,8 +32,11 @@ namespace Bakery.Models
     }
     public static void ClearPastryFromOrder()
     {
-      List <FoodItem> orderList = Pastry.Order;
-      orderList.RemoveAll(item => item.FoodType == Type);
+      Pastry.Order.RemoveAll(item => item.FoodType == Type);
+    }
+    public static void RemovePastryOfTypeFromOrder(string pastryType)
+    {
+
     }
   }
 }
