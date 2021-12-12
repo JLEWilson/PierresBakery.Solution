@@ -58,5 +58,13 @@ namespace Bakery.Tests
       Assert.AreEqual(2, newFoodItem2.Id);
       Assert.AreEqual(3, newFoodItem3.Id);
     }
+    [TestMethod]
+    public void RemoveItemFromOrder_RemoveItemFromOrderList_Int()
+    {
+      FoodItem newFoodItem1 = new FoodItem(5, "Generic");
+      FoodItem newFoodItem2 = new FoodItem(5, "Generic");
+      FoodItem.RemoveItemFromOrder(newFoodItem2.Id);
+      Assert.IsNull(FoodItem.Order[1]);
+    }
   }
 }
