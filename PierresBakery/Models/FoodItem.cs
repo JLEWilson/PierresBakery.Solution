@@ -5,13 +5,15 @@ namespace Bakery.Models
   {
     public int Price {get; set;}
     public string FoodType {get; set;}
+    public string ItemName {get; set;}
     public static int currentId {get; set;} = 0;
     public int Id {get; set;}
     public static List<FoodItem> Order {get; set;} = new List<FoodItem> {}; 
-    public FoodItem(int price, string foodType)
+    public FoodItem(int price, string foodType, string itemName)
     {
       Price = price;
       FoodType = foodType;
+      ItemName = itemName;
       Id = AssignId();
       Order.Add(this);
     }

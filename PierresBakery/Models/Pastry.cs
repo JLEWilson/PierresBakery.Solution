@@ -6,9 +6,9 @@ namespace Bakery.Models
   {
     public static string Type {get;set;} = "Pastry";
     public string PastryType {get; set;}
-    public Pastry(int price) : base(price, Type)
+    public Pastry(int price, string itemName) : base(price, Type, itemName)
     {
-
+      PastryType = itemName;
     }
     new public static int CalculateTotal()  //While we can't override static methods, we can hide them. The new keyword here will hide the parent objects CalculateTotal method and use this one instead.
     {
