@@ -64,7 +64,8 @@ namespace Bakery.Tests
       FoodItem newFoodItem1 = new FoodItem(5, "Generic");
       FoodItem newFoodItem2 = new FoodItem(5, "Generic");
       FoodItem.RemoveItemFromOrder(newFoodItem2.Id);
-      Assert.IsNull(FoodItem.Order[1]);
+      bool doesContain = FoodItem.Order.Contains(newFoodItem2);
+      Assert.AreEqual(false, doesContain);
     }
   }
 }
