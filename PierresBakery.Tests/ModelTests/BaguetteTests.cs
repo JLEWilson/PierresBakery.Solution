@@ -9,8 +9,8 @@ namespace Bakery.Tests
     [TestMethod]
     public void BaguetteConstructor_CreateInstanceOfBaguette_Baguette()
     {
-      Baguette Baguette = new Baguette();
-      Assert.AreEqual(typeof(Baguette), Baguette.GetType());
+      Baguette baguette = new Baguette();
+      Assert.AreEqual(typeof(Baguette), baguette.GetType());
     }
   }
 }
