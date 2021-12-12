@@ -9,7 +9,7 @@ public class Program
     if(_firstTime)
     {
       Console.WriteLine("Welcome to Pierres Bakery!");
-      Console.WriteLine("Today's specials are: buy 2 get 1 free Baguettes and buy 3 get 1 half off Macarons"); //Here at jacob's pierre's bakery our deals are just a little bit more specific
+      Console.WriteLine("Today's specials are: buy 2 get 1 free Baguettes and buy 2 get 1 half off Macarons"); //Here at jacob's pierre's bakery our deals are just a little bit more specific
       Console.WriteLine("To see our available items enter: menu");
       Console.WriteLine("To see our deals again enter: deals");
       Console.WriteLine("To add an item enter: add, then the item name");
@@ -36,7 +36,7 @@ public class Program
     {
       Console.WriteLine("Today's specials are: ");
       Console.WriteLine("Buy 2 get 1 free Baguettes!");
-      Console.WriteLine("Buy 3  get 1 half off Macarons!");
+      Console.WriteLine("Buy 2 get 1 half off Macarons!");
       Main();
     }
     else if(response == "add" || response == "Add")
@@ -152,27 +152,31 @@ public class Program
       Main();
     }
     else if(response == "view" || response == "View")
+    {
+      Console.WriteLine("Applying discounts!");
+      FoodItem.ApplyDiscountSpecific(3, 0, Baguette.Name);
+      FoodItem.ApplyDiscountSpecific(3, 1, Macaron.Name);
+      Console.WriteLine("Items:");
+      foreach(FoodItem item in FoodItem.Order)
       {
-        Console.WriteLine("Applying discounts!");
-        FoodItem.ApplyDiscountSpecific(3, 0, Baguette.Name);
-        FoodItem.ApplyDiscountSpecific(3, 1, Macaron.Name);
-        Console.WriteLine("Items:");
-        foreach(FoodItem item in FoodItem.Order)
-        {
-          Console.WriteLine(item.ItemName + "- " + "$" + item.Price);
-        }
-        Console.WriteLine("Total: $" + FoodItem.CalculateTotal());
-        Console.WriteLine("Would you like to checkout now?(yes/no)");
-        string checkoutResponse = Console.ReadLine();
-        if(checkoutResponse == "yes" || checkoutResponse == "Yes" || checkoutResponse == "YES"){
-          Console.WriteLine("Send your payment to my venmo @Jacob-Wilson-77");
-          Console.WriteLine("Thank you for your purchase!");
-        }
-        else
-        {
-          Main();
-        }
-        
+        Console.WriteLine(item.ItemName + "- " + "$" + item.Price);
       }
+      Console.WriteLine("Total: $" + FoodItem.CalculateTotal());
+      Console.WriteLine("Would you like to checkout now?(yes/no)");
+      string checkoutResponse = Console.ReadLine();
+      if(checkoutResponse == "yes" || checkoutResponse == "Yes" || checkoutResponse == "YES"){
+        Console.WriteLine("Send your payment to my venmo @Jacob-Wilson-77");
+        Console.WriteLine("Thank you for your purchase!");
+      }
+      else
+      {
+        Main();
+      }
+    }
+    else
+    {
+      Console.WriteLine("Invalid entry");
+      Main();
+    }
   }
 }
