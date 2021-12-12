@@ -7,8 +7,9 @@ namespace Bakery.Models
   {
     public static string Type {get; set;} = "Bread";
     public string BreadType {get; set;}
-    public Bread(int price) : base(price, Type)
+    public Bread(int price, string itemName) : base(price, Type, itemName)
     {
+      BreadType = itemName;
     }
 
     new public static int CalculateTotal()  //While we can't override static methods, we can hide them. The new keyword here will hide the parent objects CalculateTotal method and use this one instead.
@@ -34,8 +35,11 @@ namespace Bakery.Models
     
     public static void ClearBreadFromOrder()
     {
-      List <FoodItem> orderList = Bread.Order;
-      orderList.RemoveAll(item => item.FoodType == Type);
+      Bread.Order.RemoveAll(item => item.FoodType == Type);
+    }
+    public static void RemoveBreadOfTypeFromOrder(string typeOfBread)
+    {
+      Bread.Order.RemoveAll(item => item.ItemName == typeOfBread);
     }
   }
 }
