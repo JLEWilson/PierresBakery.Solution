@@ -63,7 +63,7 @@ namespace Bakery.Tests
     public void RemoveBreadOfTypeFromOrder_RemoveBreadBasedOnType_False()
     {
       Brioche bread1 = new Brioche();
-      SourDough bread2 = new SourDough();
+      Sourdough bread2 = new Sourdough();
       Baguette bread3 = new Baguette();
       Bread.RemoveBreadOfTypeFromOrder(bread1.BreadType);
       bool doesContain = Bread.Order.Contains(bread1);
