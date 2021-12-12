@@ -59,7 +59,7 @@ namespace Bakery.Tests
       Assert.AreEqual(3, newFoodItem3.Id);
     }
     [TestMethod]
-    public void RemoveItemFromOrder_RemoveItemFromOrderList_Int()
+    public void RemoveItemFromOrder_RemoveItemFromOrderList_False()
     {
       FoodItem newFoodItem1 = new FoodItem(5, "Generic");
       FoodItem newFoodItem2 = new FoodItem(5, "Generic");
