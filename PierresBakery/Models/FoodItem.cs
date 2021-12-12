@@ -47,7 +47,19 @@ namespace Bakery.Models
     }
     public static void ApplyDiscountSpecific(int itemNumberForPriceChange, int newPrice, string itemName)
     {
-      
+      int count = 0;
+      foreach(FoodItem item in Order)
+      {
+        if(item.ItemName == itemName)
+        {
+          count ++;
+        }
+        if(count == itemNumberForPriceChange)
+        {
+          item.Price = newPrice;
+          count = 0;
+        }
+      }
     }
     public static void ClearAll()
     {
