@@ -48,6 +48,20 @@ namespace Bakery.Tests
       Assert.AreEqual(20, total);
     }
     [TestMethod]
+    public void ApplyDiscountSpecific_SetPriceOfEveryXItemWithNameToY_0()
+    {
+      Croissant item1 = new Croissant();
+      Croissant item2 = new Croissant();
+      Croissant item3 = new Croissant();
+      Croissant item4 = new Croissant();
+      Croissant item5 = new Croissant();
+      Croissant item6 = new Croissant();
+      
+      FoodItem.ApplyDiscountSpecific(3, 0, Croissant.Name); //should set every third items price to 0
+      int discountedItemPrice = FoodItem.Order[2].Price;
+      Assert.AreEqual(0, discountedItemPrice);
+    }
+    [TestMethod]
     public void AssignId_ReturnUniqueIdForEachFoodItem_Int()
     {
       //method is private, runs in the constructor
